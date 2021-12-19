@@ -22,9 +22,9 @@ The purpose of the document is to describe the project's activities and outcomes
 
 The primary goal of this project is to get the raw CityPulse datasets into a format that can be queried for visualisation and analysis.
 
-To this end, the desired outcome of the project is a functioning end-to-end MVP of the pipeline which takes the raw data, applies basic transformations, and populates an empty database.
+To this end, the desired outcome of the project is a functioning end-to-end MVP of the pipeline which takes the raw data, applies basic transformations, and populates a target database.
 
-The main constraint of this project is time. It is being performed over a weekend as a recruitment challenge. Therefore, only one iteration of design and development is being conducted. This means that while the primary goal is being achieved, there will be plenty of potential follow up work to further iterate, refine and improve the solution.
+The main constraint on this project is time. It is being performed by a single developer over a weekend as a recruitment challenge. Therefore, only one iteration of design and development is being conducted. This means that while the primary goal is being achieved, there will be plenty of potential follow up work to further iterate, refine and improve the solution.
 
 In terms of technological constraints, since this project is starting from scracth and is being developed in isolation from any other systems, only open-source libraries and local computing resources are going to be used. However, technologies will be chosen that will enable the tool to be used with other databases and deployment environments.
 
@@ -59,10 +59,10 @@ To begin with, the 'raw' format of the data was manually downloaded. However, se
 
 Upon initial review of the linked datasets, the following issues were identified:
 
-- The name of the linked file for the 'Aarhus Road Traffic Dataset-1' ([`citypulse_traffic_raw_data_surrey_feb_jun_2014.tar.gz`](http://iot.ee.surrey.ac.uk:8080/datasets/traffic/traffic_feb_june/citypulse_traffic_raw_data_surrey_feb_jun_2014.tar.gz)) indicates that it is from Surrey.
-- Linked file for the 'Aarhus Road Traffic Dataset-4' ([`cultural_events_aarhus.csv`](http://iot.ee.surrey.ac.uk:8080/datasets/aarhusculturalevents/cultural_events_aarhus.csv)) points to either 'Aarhus Cultural Event Dataset-1' or 'Aarhus Road Traffic Dataset-3'.
-- Linked file for the 'Aarhus Parking Dataset-2' ([`aarhus_parking.csv`](http://iot.ee.surrey.ac.uk:8080/datasets/parking/aarhus_parking.csv)) points to the 'Aarhus Parking Event Dataset-1'.
-- Linked file for the 'Brasov Pollution Dataset-1', 'Brasov Weather Dataset-1/2' files ([`citypulse_pollution_annotated_data_aarhus_aug_oct_2014.tar.gz`](http://iot.ee.surrey.ac.uk:8080/datasets/pollution/citypulse_pollution_annotated_data_aarhus_aug_oct_2014.tar.gz) and [`raw_weather_data_aarhus.tar.gz`](http://iot.ee.surrey.ac.uk:8080/datasets/weather/feb_jun_2014/raw_weather_data_aarhus.tar.gz) and [`raw_weather_data_aug_sep_2014.zip`](http://iot.ee.surrey.ac.uk:8080/datasets/weather/aug_sep_2014/raw_weather_data_aug_sep_2014.zip)) point to the same files from Aarhus.
+- The name of the linked file for the 'Aarhus Road Traffic Dataset-1' ([`citypulse_traffic_raw_data_surrey_feb_jun_2014.tar.gz`](http://iot.ee.surrey.ac.uk:8080/datasets/traffic/traffic_feb_june/citypulse_traffic_raw_data_surrey_feb_jun_2014.tar.gz)) indicates that it is from Surrey, however the metadata for these records indicates it is in Aarhus so it is being used as if it is from Aarhus.
+- The linked file for the 'Aarhus Road Traffic Dataset-4' ([`cultural_events_aarhus.csv`](http://iot.ee.surrey.ac.uk:8080/datasets/aarhusculturalevents/cultural_events_aarhus.csv)) points to either 'Aarhus Cultural Event Dataset-1' or 'Aarhus Road Traffic Dataset-3'.
+- The linked file for the 'Aarhus Parking Dataset-2' ([`aarhus_parking.csv`](http://iot.ee.surrey.ac.uk:8080/datasets/parking/aarhus_parking.csv)) points to the 'Aarhus Parking Event Dataset-1'.
+- The linked file for the 'Brasov Pollution Dataset-1', 'Brasov Weather Dataset-1/2' files ([`citypulse_pollution_annotated_data_aarhus_aug_oct_2014.tar.gz`](http://iot.ee.surrey.ac.uk:8080/datasets/pollution/citypulse_pollution_annotated_data_aarhus_aug_oct_2014.tar.gz) and [`raw_weather_data_aarhus.tar.gz`](http://iot.ee.surrey.ac.uk:8080/datasets/weather/feb_jun_2014/raw_weather_data_aarhus.tar.gz) and [`raw_weather_data_aug_sep_2014.zip`](http://iot.ee.surrey.ac.uk:8080/datasets/weather/aug_sep_2014/raw_weather_data_aug_sep_2014.zip)) point to the same files from Aarhus.
 
 An inspection into the [backend file structure of the website](http://iot.ee.surrey.ac.uk:8080/datasets) was conducted, however the correct files did not appear to be there either. In these cases, the duplicated files are being ignored from here on and in the developed tool.
 
@@ -122,7 +122,7 @@ A Command Line Interface (CLI) will be responsible for setting up the database a
 
 ![CLI Functional Design](cli-functional-design.png)
 
-The CLI can run three tasks:
+The CLI will run three tasks:
 
 - `run-pipeline` - This runs the ETL pipeline on a collection of datasets hosted by CityPulse. It takes a json file with a list of dictionaries that defines the datasets to be processed by the pipeline.
 - `init-metadata` - This initialises the metadata tables. It should be run each time the database is recreated and potentially more often if new metadata becomes available.
@@ -148,7 +148,7 @@ As well as being useful for running the pipeline, installing the package also gi
 
 ### Using the tool
 
-The project's README file describes how to install the tool.
+The project's [README file](https://gitlab.com/s-a-m/citypulse-etl/-/blob/main/README.md) describes how to install the tool.
 
 #### Initialise the database
 
@@ -191,7 +191,7 @@ Which produces the following logs showing the progress (truncated for brevity):
 ...
 ```
 
-Since the data model has implemented with column data type, foriegn key, uniqueness constraints, these constraints are checked upon writing and are raised as exceptions by SQLAlchemy if they are violated. Transaction sessions are used to ensure that a only a successful pipeline is committed to the database.
+Since the data model has implemented with column data type, foriegn key, uniqueness constraints, these constraints are checked upon insertion and are raised as exceptions by SQLAlchemy if they are violated. Transaction sessions are used to ensure that a only valid insertions from a completely sucessful pipeline is committed to the database.
 
 ## Discussion
 
@@ -209,7 +209,7 @@ Alternatively, if the data became available via a different communication protoc
 
 In order to scale up to a much larger amount of IoT sensors, the first recommended change to the tool would be to hook it up to a larger database than SQLite. Since it uses SQLAlchemy, this would just be a matter of changing the database driver & connection string that it is using.
 
-Aside from using a more scalable database, the current tool itself should be quite scalable since a run is defined by a json configuration and the pipeline processes and commits each dataset from an independent database session. This means that pipelines could be orchestrated and run in a distributed computing environment. For example, setting up a shared queue of pipeline _jobs_ and running them in parallel aross multiple worker machines or in a serverless architecture (e.g. Azure Functions / AWS Lambda).
+Aside from using a more scalable database, the current tool itself should be quite scalable since a run is defined by a json configuration and the pipeline processes and commits each dataset from an independent database session/transaction. This means that pipelines could be orchestrated and run in a distributed computing environment. For example, setting up a shared queue of pipeline _jobs_ and running them in parallel aross multiple worker machines or in a serverless architecture (e.g. Azure Functions / AWS Lambda).
 
 #### Converting geographic coordinates into human-readable addresses
 
@@ -219,21 +219,31 @@ This could be achieved by either appending the existing pipeline or setting up a
 
 #### Harmonising the cultural and library event datasets
 
-...
+The cultural and library event datasets contain a lot of similar data. For example, the following fields exist across both datasets:
 
-#### Other potential uses of this data
+- Name of the event
+- Address (City / Street / Postal Code)
+- Longitude & Latitude
+- URL & Image URL
+- Price
 
-...
+With further transformation to align naming and datatypes, these could be combined into a shared data model (table).
+
+For other fields available in one but not the other, sensible defaults could be chosen to fill them in. For example the theatre events have a 'room' field which isn't present in the library data, this could simply be 'library' or similar for the library events.
+
+Doing this would allow more generalised exploration, visualised and analysis of the data. It would also open up opportunity to integrate events from other locations into the same model.
 
 ### Recommended improvements / future work
 
 In addition to the potential improvements discussed above, the following work could also be conducted to improve the tool.
 
-- Find out where the wrongly indexed/linked datasets are.
-- Use a more sophisticated Object Oriented design in the `citypulse_etl.models` module to reduce duplicated code
+- Find out where the wrongly indexed/linked datasets are
+- Investigate the data modelling framework associated with the broader CityPulse academic research project
+- Conduct more research into the context of the data collection, it's purpose and the environment it has been collected in to help understand more about the value of the data and how it can be analysed
+- Validate column name guesses (i.e. Cultural Event Data)
 - Document the system architecture more formally, using something like [arc42](https://arc42.org/)
 - Validate column name guesses (i.e. Cultural Event Data)
-- Improve the data model to better suit specific requirements of  visualisation and analysis
+- Improve the data model to better suit more specific requirements of the visualisation and analysis in collaboration with the data analyst
 - More detailed analysis into the quality of the data to build more sophisticated cleaning and transformation
 
 ## Summary
