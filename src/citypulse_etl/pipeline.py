@@ -7,22 +7,10 @@ import zipfile
 
 from typing import Dict, List
 
-from dotenv import load_dotenv
-load_dotenv()
+from .utils import RAW_DATA_DIR, download_file
 
 import logging
 log = logging.getLogger(__name__)
-
-
-RAW_DATA_DIR = os.getenv('RAW_DATA_DIR')
-if not os.path.exists(RAW_DATA_DIR):
-    os.makedirs(RAW_DATA_DIR)
-
-def download_raw_dataset(url: str, fname: str):
-    r = requests.get(url)
-    fpath = os.path.join(RAW_DATA_DIR, fname)
-    with open(fpath, 'wb') as fp:
-        fp.write(r.content)
 
 def unpack_raw_data_file(fname: str, warn_on_overwrite: bool = False):
     if fname.endswith('.tar.gz'):
@@ -59,7 +47,7 @@ def run_pipeline(
 
     if not skip_download:
         log.info("Downloading raw dataset files...")
-        download_raw_dataset(url, ds_fname)
+        download_file(url, ds_fname)
     else:
         log.info("Using cached dataset files (skipping download)...")
 
