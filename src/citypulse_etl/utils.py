@@ -18,3 +18,8 @@ def download_file(url: str, fname: str):
     fpath = os.path.join(RAW_DATA_DIR, fname)
     with open(fpath, 'wb') as fp:
         fp.write(r.content)
+
+def check_for_header(fname):
+    with open(fname, encoding='utf-8') as f:
+        first_line = f.readline().strip()
+        return all([s.strip().isidentifier() for s in first_line.split(',')])
