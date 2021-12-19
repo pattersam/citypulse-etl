@@ -238,10 +238,11 @@ Doing this would allow more generalised exploration, visualised and analysis of 
 Analysing the consolidation of the various types of datasets hosted by CityPulse in larger volume and in real-time opens up a wide range of potential smart city use cases. For example:
 
 - Learning relationship between the datasets to predict the impact of them on one-another, e.g. how weather and events impact local traffic, parking availability and pollution
-- Supporting public transport operators to make more informed and proactive decisions about the required capacity of the public transport system
+- Supporting public transport operators to make more informed and proactive decisions about the required capacity of the public transport system (based on current and predicted weather, events, and traffic)
 - Informing citizens about upcoming events with integrated weather updates and travel recommendations
+- Dynamic pricing and allocation of parking spots based on expected use (e.g. for markets or other temporary events) 
 - Providing citizens with real-time updates about traffic and pollution to inform their transit decisions
-- Analysis to support scheduling events across city buildings in a way that minimises the impact on traffic and pollution
+- Analysis to support scheduling events across city owned buildings in a way that minimises the impact on traffic and pollution
 
 ### Recommended improvements / future work
 
