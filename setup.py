@@ -25,6 +25,6 @@ setup(
         'SQLAlchemy',
     ],
     entry_points = {
-        # 'console_scripts': ['citypulse-etl=TBA'],
+        'console_scripts': ['citypulse-etl=citypulse_etl.cli:main'],
     }
 )
