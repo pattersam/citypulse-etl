@@ -44,7 +44,7 @@ A report about this project is available under `docs/report.md`.
 
 ### Building as a pdf
 
-To build a pdf out of the report, [pandoc](https://pandoc.org/) can be used.
+To build a pdf out of the report, [pandoc](https://pandoc.org/) has be used along with [this helpful guide](https://learnbyexample.github.io/customizing-pandoc/)
 
 Install Pandoc and filters
 
@@ -55,5 +55,4 @@ Install Pandoc and filters
 
 Build
 
-- `cd docs`
-- `pandoc report.md -f gfm -s -o report.pdf --filter mermaid-filter.cmd`
+- `./compile.sh `
