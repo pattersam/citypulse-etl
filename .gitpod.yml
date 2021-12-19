@@ -1,0 +1,4 @@
+# Commands to start on workspace startup
+tasks:
+  - init: python -m virtualenv venv
+    command: pip install -r requirements.txt
