@@ -134,8 +134,8 @@
 <!-- datasets&#45;&gt;data_types -->
 <g id="edge2" class="edge">
 <title>datasets&#45;&gt;data_types</title>
-<path fill="none" stroke="black" stroke-width="0.9" d="M966.36,-787.55C874.39,-641.62 648.52,-283.26 648.52,-283.26 648.52,-283.26 556.44,-164.04 505.81,-98.49"/>
-<polygon fill="black" stroke="black" stroke-width="0.9" points="507.86,-96.55 500.75,-91.93 503.42,-99.97 507.86,-96.55"/>
+<path fill="none" stroke="black" stroke-width="0.9" d="M965.45,-787.55C871.28,-641.62 640.02,-283.26 640.02,-283.26 640.02,-283.26 552.41,-164.04 504.24,-98.49"/>
+<polygon fill="black" stroke="black" stroke-width="0.9" points="506.42,-96.72 499.42,-91.93 501.9,-100.04 506.42,-96.72"/>
 </g>
 <!-- datasets&#45;&gt;locations -->
 <g id="edge1" class="edge">
@@ -185,43 +185,43 @@
 <!-- pollution_data -->
 <g id="node7" class="node">
 <title>pollution_data</title>
-<path fill="none" stroke="black" d="M475.32,-286.46C475.32,-286.46 633.32,-286.46 633.32,-286.46 639.32,-286.46 645.32,-292.46 645.32,-298.46 645.32,-298.46 645.32,-497.46 645.32,-497.46 645.32,-503.46 639.32,-509.46 633.32,-509.46 633.32,-509.46 475.32,-509.46 475.32,-509.46 469.32,-509.46 463.32,-503.46 463.32,-497.46 463.32,-497.46 463.32,-298.46 463.32,-298.46 463.32,-292.46 469.32,-286.46 475.32,-286.46"/>
+<path fill="none" stroke="black" d="M483.82,-286.46C483.82,-286.46 624.82,-286.46 624.82,-286.46 630.82,-286.46 636.82,-292.46 636.82,-298.46 636.82,-298.46 636.82,-497.46 636.82,-497.46 636.82,-503.46 630.82,-509.46 624.82,-509.46 624.82,-509.46 483.82,-509.46 483.82,-509.46 477.82,-509.46 471.82,-503.46 471.82,-497.46 471.82,-497.46 471.82,-298.46 471.82,-298.46 471.82,-292.46 477.82,-286.46 483.82,-286.46"/>
 <text text-anchor="start" x="502.32" y="-489.06" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="13.00">pollution_data</text>
-<polyline fill="none" stroke="black" points="463.32,-479.46 645.32,-479.46 "/>
-<text text-anchor="start" x="470.32" y="-465.36" font-family="Helvetica,sans-Serif" font-size="12.00">id* </text>
-<text text-anchor="start" x="491.32" y="-465.36" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="12.00">integer</text>
-<text text-anchor="start" x="470.32" y="-448.36" font-family="Helvetica,sans-Serif" font-size="12.00">ozone </text>
-<text text-anchor="start" x="510.32" y="-448.36" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="12.00">integer</text>
-<text text-anchor="start" x="470.32" y="-431.36" font-family="Helvetica,sans-Serif" font-size="12.00">particullate_matter </text>
-<text text-anchor="start" x="589.32" y="-431.36" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="12.00">integer</text>
-<text text-anchor="start" x="470.32" y="-414.36" font-family="Helvetica,sans-Serif" font-size="12.00">carbon_monoxide </text>
-<text text-anchor="start" x="581.32" y="-414.36" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="12.00">integer</text>
-<text text-anchor="start" x="470.32" y="-397.36" font-family="Helvetica,sans-Serif" font-size="12.00">sulfure_dioxide </text>
-<text text-anchor="start" x="563.32" y="-397.36" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="12.00">integer</text>
-<text text-anchor="start" x="470.32" y="-380.36" font-family="Helvetica,sans-Serif" font-size="12.00">nitrogen_dioxide </text>
-<text text-anchor="start" x="572.32" y="-380.36" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="12.00">integer</text>
-<text text-anchor="start" x="470.32" y="-363.36" font-family="Helvetica,sans-Serif" font-size="12.00">longitude </text>
-<text text-anchor="start" x="530.32" y="-363.36" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="12.00">float</text>
-<text text-anchor="start" x="470.32" y="-346.36" font-family="Helvetica,sans-Serif" font-size="12.00">latitude </text>
-<text text-anchor="start" x="519.32" y="-346.36" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="12.00">float</text>
-<text text-anchor="start" x="470.32" y="-329.36" font-family="Helvetica,sans-Serif" font-size="12.00">timestamp </text>
-<text text-anchor="start" x="539.32" y="-329.36" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="12.00">datetime</text>
-<text text-anchor="start" x="470.32" y="-312.36" font-family="Helvetica,sans-Serif" font-size="12.00">report_id </text>
-<text text-anchor="start" x="528.32" y="-312.36" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="12.00">integer</text>
-<text text-anchor="start" x="470.32" y="-295.36" font-family="Helvetica,sans-Serif" font-size="12.00">dataset_id </text>
-<text text-anchor="start" x="536.32" y="-295.36" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="12.00">integer</text>
+<polyline fill="none" stroke="black" points="471.82,-479.46 636.82,-479.46 "/>
+<text text-anchor="start" x="479.32" y="-465.36" font-family="Helvetica,sans-Serif" font-size="12.00">id* </text>
+<text text-anchor="start" x="500.32" y="-465.36" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="12.00">integer</text>
+<text text-anchor="start" x="479.32" y="-448.36" font-family="Helvetica,sans-Serif" font-size="12.00">ozone </text>
+<text text-anchor="start" x="519.32" y="-448.36" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="12.00">float</text>
+<text text-anchor="start" x="479.32" y="-431.36" font-family="Helvetica,sans-Serif" font-size="12.00">particullate_matter </text>
+<text text-anchor="start" x="598.32" y="-431.36" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="12.00">float</text>
+<text text-anchor="start" x="479.32" y="-414.36" font-family="Helvetica,sans-Serif" font-size="12.00">carbon_monoxide </text>
+<text text-anchor="start" x="590.32" y="-414.36" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="12.00">float</text>
+<text text-anchor="start" x="479.32" y="-397.36" font-family="Helvetica,sans-Serif" font-size="12.00">sulfure_dioxide </text>
+<text text-anchor="start" x="572.32" y="-397.36" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="12.00">float</text>
+<text text-anchor="start" x="479.32" y="-380.36" font-family="Helvetica,sans-Serif" font-size="12.00">nitrogen_dioxide </text>
+<text text-anchor="start" x="581.32" y="-380.36" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="12.00">float</text>
+<text text-anchor="start" x="479.32" y="-363.36" font-family="Helvetica,sans-Serif" font-size="12.00">longitude </text>
+<text text-anchor="start" x="539.32" y="-363.36" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="12.00">float</text>
+<text text-anchor="start" x="479.32" y="-346.36" font-family="Helvetica,sans-Serif" font-size="12.00">latitude </text>
+<text text-anchor="start" x="528.32" y="-346.36" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="12.00">float</text>
+<text text-anchor="start" x="479.32" y="-329.36" font-family="Helvetica,sans-Serif" font-size="12.00">timestamp </text>
+<text text-anchor="start" x="548.32" y="-329.36" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="12.00">datetime</text>
+<text text-anchor="start" x="479.32" y="-312.36" font-family="Helvetica,sans-Serif" font-size="12.00">report_id </text>
+<text text-anchor="start" x="537.32" y="-312.36" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="12.00">integer</text>
+<text text-anchor="start" x="479.32" y="-295.36" font-family="Helvetica,sans-Serif" font-size="12.00">dataset_id </text>
+<text text-anchor="start" x="545.32" y="-295.36" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="12.00">integer</text>
 </g>
 <!-- pollution_data&#45;&gt;traffic_sensors -->
 <g id="edge6" class="edge">
 <title>pollution_data&#45;&gt;traffic_sensors</title>
-<path fill="none" stroke="black" stroke-width="0.9" d="M463.19,-489.09C391.31,-560.98 290.76,-661.52 214.32,-737.96"/>
-<polygon fill="black" stroke="black" stroke-width="0.9" points="212.08,-736.25 208.4,-743.88 216.04,-740.21 212.08,-736.25"/>
+<path fill="none" stroke="black" stroke-width="0.9" d="M471.73,-480.56C399.32,-552.96 293.5,-658.78 213.95,-738.33"/>
+<polygon fill="black" stroke="black" stroke-width="0.9" points="211.94,-736.38 208.27,-744.02 215.9,-740.34 211.94,-736.38"/>
 </g>
 <!-- pollution_data&#45;&gt;datasets -->
 <g id="edge5" class="edge">
 <title>pollution_data&#45;&gt;datasets</title>
-<path fill="none" stroke="black" stroke-width="0.9" d="M645.45,-489.09C732.12,-575.76 860.44,-704.07 937.94,-781.58"/>
-<polygon fill="black" stroke="black" stroke-width="0.9" points="936.26,-783.86 943.9,-787.54 940.22,-779.9 936.26,-783.86"/>
+<path fill="none" stroke="black" stroke-width="0.9" d="M636.92,-480.56C723.58,-567.22 858.11,-701.75 938.18,-781.82"/>
+<polygon fill="black" stroke="black" stroke-width="0.9" points="936.21,-783.81 943.85,-787.49 940.17,-779.85 936.21,-783.81"/>
 </g>
 <!-- weather_data -->
 <g id="node8" class="node">
@@ -374,59 +374,59 @@
 <!-- library_event_data -->
 <g id="node12" class="node">
 <title>library_event_data</title>
-<path fill="none" stroke="black" d="M575.84,-1434.64C575.84,-1434.64 702.84,-1434.64 702.84,-1434.64 708.84,-1434.64 714.84,-1440.64 714.84,-1446.64 714.84,-1446.64 714.84,-1832.64 714.84,-1832.64 714.84,-1838.64 708.84,-1844.64 702.84,-1844.64 702.84,-1844.64 575.84,-1844.64 575.84,-1844.64 569.84,-1844.64 563.84,-1838.64 563.84,-1832.64 563.84,-1832.64 563.84,-1446.64 563.84,-1446.64 563.84,-1440.64 569.84,-1434.64 575.84,-1434.64"/>
+<path fill="none" stroke="black" d="M573.84,-1434.64C573.84,-1434.64 704.84,-1434.64 704.84,-1434.64 710.84,-1434.64 716.84,-1440.64 716.84,-1446.64 716.84,-1446.64 716.84,-1832.64 716.84,-1832.64 716.84,-1838.64 710.84,-1844.64 704.84,-1844.64 704.84,-1844.64 573.84,-1844.64 573.84,-1844.64 567.84,-1844.64 561.84,-1838.64 561.84,-1832.64 561.84,-1832.64 561.84,-1446.64 561.84,-1446.64 561.84,-1440.64 567.84,-1434.64 573.84,-1434.64"/>
 <text text-anchor="start" x="571.34" y="-1824.24" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="13.00">library_event_data</text>
-<polyline fill="none" stroke="black" points="563.84,-1814.64 714.84,-1814.64 "/>
-<text text-anchor="start" x="574.34" y="-1801.04" font-family="Helvetica,sans-Serif" font-size="12.00">id* </text>
-<text text-anchor="start" x="595.34" y="-1801.04" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="12.00">integer</text>
-<text text-anchor="start" x="574.34" y="-1784.04" font-family="Helvetica,sans-Serif" font-size="12.00">lid </text>
-<text text-anchor="start" x="592.34" y="-1784.04" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="12.00">varchar</text>
-<text text-anchor="start" x="574.34" y="-1767.04" font-family="Helvetica,sans-Serif" font-size="12.00">city </text>
-<text text-anchor="start" x="599.34" y="-1767.04" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="12.00">varchar</text>
-<text text-anchor="start" x="574.34" y="-1750.04" font-family="Helvetica,sans-Serif" font-size="12.00">end_time </text>
-<text text-anchor="start" x="634.34" y="-1750.04" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="12.00">varchar</text>
-<text text-anchor="start" x="574.34" y="-1733.04" font-family="Helvetica,sans-Serif" font-size="12.00">title </text>
-<text text-anchor="start" x="601.34" y="-1733.04" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="12.00">varchar</text>
-<text text-anchor="start" x="574.34" y="-1716.04" font-family="Helvetica,sans-Serif" font-size="12.00">url </text>
-<text text-anchor="start" x="594.34" y="-1716.04" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="12.00">varchar</text>
-<text text-anchor="start" x="574.34" y="-1699.04" font-family="Helvetica,sans-Serif" font-size="12.00">price </text>
-<text text-anchor="start" x="608.34" y="-1699.04" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="12.00">varchar</text>
-<text text-anchor="start" x="574.34" y="-1682.04" font-family="Helvetica,sans-Serif" font-size="12.00">changed </text>
-<text text-anchor="start" x="630.34" y="-1682.04" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="12.00">varchar</text>
-<text text-anchor="start" x="574.34" y="-1665.04" font-family="Helvetica,sans-Serif" font-size="12.00">content </text>
-<text text-anchor="start" x="624.34" y="-1665.04" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="12.00">varchar</text>
-<text text-anchor="start" x="574.34" y="-1648.04" font-family="Helvetica,sans-Serif" font-size="12.00">zip_code </text>
-<text text-anchor="start" x="630.34" y="-1648.04" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="12.00">varchar</text>
-<text text-anchor="start" x="574.34" y="-1631.04" font-family="Helvetica,sans-Serif" font-size="12.00">library </text>
-<text text-anchor="start" x="617.34" y="-1631.04" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="12.00">varchar</text>
-<text text-anchor="start" x="574.34" y="-1614.04" font-family="Helvetica,sans-Serif" font-size="12.00">image_url </text>
-<text text-anchor="start" x="638.34" y="-1614.04" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="12.00">varchar</text>
-<text text-anchor="start" x="574.34" y="-1597.04" font-family="Helvetica,sans-Serif" font-size="12.00">teaser </text>
-<text text-anchor="start" x="617.34" y="-1597.04" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="12.00">varchar</text>
-<text text-anchor="start" x="574.34" y="-1580.04" font-family="Helvetica,sans-Serif" font-size="12.00">street </text>
-<text text-anchor="start" x="613.34" y="-1580.04" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="12.00">varchar</text>
-<text text-anchor="start" x="574.34" y="-1563.04" font-family="Helvetica,sans-Serif" font-size="12.00">status </text>
-<text text-anchor="start" x="614.34" y="-1563.04" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="12.00">varchar</text>
-<text text-anchor="start" x="574.34" y="-1546.04" font-family="Helvetica,sans-Serif" font-size="12.00">longitude </text>
-<text text-anchor="start" x="634.34" y="-1546.04" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="12.00">varchar</text>
-<text text-anchor="start" x="574.34" y="-1529.04" font-family="Helvetica,sans-Serif" font-size="12.00">start_time </text>
-<text text-anchor="start" x="639.34" y="-1529.04" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="12.00">varchar</text>
-<text text-anchor="start" x="574.34" y="-1512.04" font-family="Helvetica,sans-Serif" font-size="12.00">latitude </text>
-<text text-anchor="start" x="623.34" y="-1512.04" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="12.00">varchar</text>
-<text text-anchor="start" x="574.34" y="-1495.04" font-family="Helvetica,sans-Serif" font-size="12.00">_id </text>
-<text text-anchor="start" x="595.34" y="-1495.04" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="12.00">varchar</text>
-<text text-anchor="start" x="574.34" y="-1478.04" font-family="Helvetica,sans-Serif" font-size="12.00">event_id </text>
-<text text-anchor="start" x="629.34" y="-1478.04" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="12.00">varchar</text>
-<text text-anchor="start" x="574.34" y="-1461.04" font-family="Helvetica,sans-Serif" font-size="12.00">stream_time </text>
-<text text-anchor="start" x="653.34" y="-1461.04" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="12.00">varchar</text>
-<text text-anchor="start" x="574.34" y="-1444.04" font-family="Helvetica,sans-Serif" font-size="12.00">dataset_id </text>
-<text text-anchor="start" x="640.34" y="-1444.04" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="12.00">integer</text>
+<polyline fill="none" stroke="black" points="561.84,-1814.64 716.84,-1814.64 "/>
+<text text-anchor="start" x="569.34" y="-1801.04" font-family="Helvetica,sans-Serif" font-size="12.00">id* </text>
+<text text-anchor="start" x="590.34" y="-1801.04" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="12.00">integer</text>
+<text text-anchor="start" x="569.34" y="-1784.04" font-family="Helvetica,sans-Serif" font-size="12.00">lid </text>
+<text text-anchor="start" x="587.34" y="-1784.04" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="12.00">varchar</text>
+<text text-anchor="start" x="569.34" y="-1767.04" font-family="Helvetica,sans-Serif" font-size="12.00">city </text>
+<text text-anchor="start" x="594.34" y="-1767.04" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="12.00">varchar</text>
+<text text-anchor="start" x="569.34" y="-1750.04" font-family="Helvetica,sans-Serif" font-size="12.00">end_time </text>
+<text text-anchor="start" x="629.34" y="-1750.04" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="12.00">datetime</text>
+<text text-anchor="start" x="569.34" y="-1733.04" font-family="Helvetica,sans-Serif" font-size="12.00">title </text>
+<text text-anchor="start" x="596.34" y="-1733.04" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="12.00">varchar</text>
+<text text-anchor="start" x="569.34" y="-1716.04" font-family="Helvetica,sans-Serif" font-size="12.00">url </text>
+<text text-anchor="start" x="589.34" y="-1716.04" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="12.00">varchar</text>
+<text text-anchor="start" x="569.34" y="-1699.04" font-family="Helvetica,sans-Serif" font-size="12.00">price </text>
+<text text-anchor="start" x="603.34" y="-1699.04" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="12.00">varchar</text>
+<text text-anchor="start" x="569.34" y="-1682.04" font-family="Helvetica,sans-Serif" font-size="12.00">changed </text>
+<text text-anchor="start" x="625.34" y="-1682.04" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="12.00">datetime</text>
+<text text-anchor="start" x="569.34" y="-1665.04" font-family="Helvetica,sans-Serif" font-size="12.00">content </text>
+<text text-anchor="start" x="619.34" y="-1665.04" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="12.00">varchar</text>
+<text text-anchor="start" x="569.34" y="-1648.04" font-family="Helvetica,sans-Serif" font-size="12.00">zip_code </text>
+<text text-anchor="start" x="625.34" y="-1648.04" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="12.00">integer</text>
+<text text-anchor="start" x="569.34" y="-1631.04" font-family="Helvetica,sans-Serif" font-size="12.00">library </text>
+<text text-anchor="start" x="612.34" y="-1631.04" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="12.00">varchar</text>
+<text text-anchor="start" x="569.34" y="-1614.04" font-family="Helvetica,sans-Serif" font-size="12.00">image_url </text>
+<text text-anchor="start" x="633.34" y="-1614.04" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="12.00">varchar</text>
+<text text-anchor="start" x="569.34" y="-1597.04" font-family="Helvetica,sans-Serif" font-size="12.00">teaser </text>
+<text text-anchor="start" x="612.34" y="-1597.04" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="12.00">varchar</text>
+<text text-anchor="start" x="569.34" y="-1580.04" font-family="Helvetica,sans-Serif" font-size="12.00">street </text>
+<text text-anchor="start" x="608.34" y="-1580.04" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="12.00">varchar</text>
+<text text-anchor="start" x="569.34" y="-1563.04" font-family="Helvetica,sans-Serif" font-size="12.00">status </text>
+<text text-anchor="start" x="609.34" y="-1563.04" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="12.00">integer</text>
+<text text-anchor="start" x="569.34" y="-1546.04" font-family="Helvetica,sans-Serif" font-size="12.00">longitude </text>
+<text text-anchor="start" x="629.34" y="-1546.04" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="12.00">float</text>
+<text text-anchor="start" x="569.34" y="-1529.04" font-family="Helvetica,sans-Serif" font-size="12.00">start_time </text>
+<text text-anchor="start" x="634.34" y="-1529.04" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="12.00">datetime</text>
+<text text-anchor="start" x="569.34" y="-1512.04" font-family="Helvetica,sans-Serif" font-size="12.00">latitude </text>
+<text text-anchor="start" x="618.34" y="-1512.04" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="12.00">float</text>
+<text text-anchor="start" x="569.34" y="-1495.04" font-family="Helvetica,sans-Serif" font-size="12.00">_id </text>
+<text text-anchor="start" x="590.34" y="-1495.04" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="12.00">integer</text>
+<text text-anchor="start" x="569.34" y="-1478.04" font-family="Helvetica,sans-Serif" font-size="12.00">event_id </text>
+<text text-anchor="start" x="624.34" y="-1478.04" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="12.00">integer</text>
+<text text-anchor="start" x="569.34" y="-1461.04" font-family="Helvetica,sans-Serif" font-size="12.00">stream_time </text>
+<text text-anchor="start" x="648.34" y="-1461.04" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="12.00">datetime</text>
+<text text-anchor="start" x="569.34" y="-1444.04" font-family="Helvetica,sans-Serif" font-size="12.00">dataset_id </text>
+<text text-anchor="start" x="635.34" y="-1444.04" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="12.00">integer</text>
 </g>
 <!-- library_event_data&#45;&gt;datasets -->
 <g id="edge12" class="edge">
 <title>library_event_data&#45;&gt;datasets</title>
-<path fill="none" stroke="black" stroke-width="0.9" d="M715.03,-1475.67C794.66,-1303.17 916.16,-1039.96 973.12,-916.58"/>
-<polygon fill="black" stroke="black" stroke-width="0.9" points="975.8,-917.46 976.61,-909.02 970.71,-915.11 975.8,-917.46"/>
+<path fill="none" stroke="black" stroke-width="0.9" d="M717.03,-1471.33C796.65,-1298.86 916.54,-1039.15 973.04,-916.74"/>
+<polygon fill="black" stroke="black" stroke-width="0.9" points="975.7,-917.67 976.51,-909.23 970.61,-915.32 975.7,-917.67"/>
 </g>
 </g>
 </svg>
