@@ -155,6 +155,8 @@ The tool has been built as a installable Python package that provides the CLI to
 
 As well as being useful for running the pipeline, installing the package also gives access to the SQLAlchemy ORM classes which could be used by a consumer to interact with the data instead of SQL.
 
+A dependency graph of the developed package is available in the appendix.
+
 ### Using the tool
 
 The project's [README file](https://gitlab.com/s-a-m/citypulse-etl/-/blob/main/README.md) describes how to install the tool.
@@ -305,3 +307,10 @@ The developed MVP has successfully met the primary goal of the project within th
 A CLI tool allows the user to initialise an SQL database and run the ETL pipeline on the data hosted on the CityPulse website to populate the target database.
 
 Discussion into future potential uses highlights the flexibility of the tool as well as potentials for future improvements.
+
+## Appendix
+
+### Package structure
+
+![Dependency Graph of the `citypulse_etl` Python package](deps.svg)
+**Figure 6.** Dependency Graph of the `citypulse_etl` Python package

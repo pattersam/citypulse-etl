@@ -61,6 +61,10 @@ The [sqleton](https://github.com/inukshuk/sqleton) tool can build a scheme from 
 
 - Run: `sqleton -o docs/schema.svg -L circo data/database.db`
 
+#### Building package dependecy graph
+
+- Run: `pydeps --noshow -o docs/deps.svg -T svg src/citypulse_etl`
+
 #### Building report
 
 [Pandoc](https://pandoc.org/) is used to convert the `docs/report.md` Markdown file to a PDF
