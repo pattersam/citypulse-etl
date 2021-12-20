@@ -10,7 +10,7 @@ from sqlalchemy.exc import IntegrityError
 from typing import Dict, List
 
 from .database import Session
-from .models import Dataset, DataType, Location
+from .models import Dataset, DataType, Location, WeatherData
 from .utils import RAW_DATA_DIR, download_file
 
 import logging
@@ -34,10 +34,10 @@ def unpack_raw_data_file(fname: str, warn_on_overwrite: bool = False):
 
 def iter_dataset_files(fname: str) -> str:
     if not fname.endswith('.csv'):
-        csv_files = unpack_raw_data_file(fname)
+        data_files = unpack_raw_data_file(fname)
     else:
-        csv_files = [fname]
-    for fname in csv_files:
+        data_files = [fname]
+    for fname in data_files:
         if 'MACOSX' in fname: continue
         yield os.path.join(RAW_DATA_DIR, fname)
 
@@ -46,9 +46,26 @@ def insert_rows_from_df(df: pd.DataFrame, data_type_cls, session: Session):
     # Doing it this way instead of creating a `data_type_cls` object for all 
     # rows to improve performance.
     log.debug(f"Converting {len(df)} row DataFrame to list of dicts")
-    records = df.to_dict(orient='records')
-    log.debug(f"Performing insert in {data_type_cls.__tablename__}")
-    session.execute(data_type_cls.__table__.insert(), records)
+    all_records = df.to_dict(orient='records')
+    log.debug(f"Performing insert in {data_type_cls}")
+    # Handle special case for weather data records split across files.
+    # This could be cleaned up by using a MixIn / overriden method on the models
+    if data_type_cls == WeatherData:
+        records_for_insert = []
+        for record in all_records:
+            r = session.query(WeatherData).filter(
+                WeatherData.dataset_id.like(record['dataset_id']),
+                WeatherData.timestamp.like(record['timestamp']),
+                ).first()
+            if r is not None:
+                for k in record:
+                    setattr(r, k, record[k])
+            else:
+                records_for_insert.append(record)
+    else:
+        records_for_insert = all_records
+    stmt = data_type_cls.__table__.insert()
+    session.execute(stmt, records_for_insert)
 
 def run_pipeline(
     ds_dict: Dict,
@@ -87,6 +104,7 @@ def run_pipeline(
             insert_rows_from_df(transformed_data, data_type_model_cls, session)
         except IntegrityError:
             log.error("Uniqueness Constraint Failed, continuing without these rows...")
+            raise
 
     session.commit()
     session.close()
