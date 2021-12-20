@@ -10,9 +10,9 @@ Repository: [https://gitlab.com/s-a-m/citypulse-etl](https://gitlab.com/s-a-m/ci
 
 A minimum viable product (MVP) has been developed to run an extract, transform, load (ETL) pipeline on a variety of Smart City datasets.
 
-The publically accessible data has been successfully ingested into a database in a format appropriate for a data analyst to conduct visualisation and analysis.
+The publicly accessible data has been successfully ingested into a database in a format appropriate for a data analyst to conduct visualisation and analysis.
 
-Since only one iteration of development has been condcuted, several potential improvements to the data model and pipeline are suggested. Nonentless, the fully functioning end-to-end tool demonstrates a range of quality data engineering practices that place it as a solid foundation for further iteration.
+Since only one iteration of development has been conducted, several potential improvements to the data model and pipeline are suggested. Nonetheless, the fully functioning end-to-end tool demonstrates a range of quality data engineering practices that place it as a solid foundation for further iteration.
 
 ## Introduction
 
@@ -28,7 +28,7 @@ To this end, the desired outcome of the project is a functioning end-to-end MVP 
 
 The main constraint on this project is time. It is being performed by a single developer over a weekend as a recruitment challenge. Therefore, only one iteration of design and development is being conducted. This means that while the primary goal is being achieved, there will be plenty of potential follow up work to further iterate, refine and improve the solution.
 
-In terms of technological constraints, since this project is starting from scracth and is being developed in isolation from any other systems, only open-source libraries and local computing resources are going to be used. However, technologies will be chosen that will enable the tool to be used with other databases and deployment environments.
+In terms of technological constraints, since this project is starting from scratch and is being developed in isolation from any other systems, only open-source libraries and local computing resources are going to be used. However, technologies will be chosen that will enable the tool to be used with other databases and deployment environments.
 
 ## Explore and assess the data
 
@@ -108,16 +108,16 @@ The initial design of the CityPulse ETL package comprises of a conceptual data m
 
 ### First pass conceptual data model
 
-A first iteartion of the conceptual data model was developed based on the key types of data.
+A first iteration of the conceptual data model was developed based on the key types of data.
 
 ![Conceptual Data Model](conceptual-data-model.png)
 **Figure 1.** Conceptual Data Model
 
-The primary data models are the seven different types of datasets hosted CityPulse. Alongside these are the two metatata models provided that relate to the Road Traffic, Pollution, and Parking Lot data.
+The primary data models are the seven different types of datasets hosted CityPulse. Alongside these are the two metadata models provided that relate to the Road Traffic, Pollution, and Parking Lot data.
 
 There are also three reference data models which align with how CityPulse indexes the data.
 
-While there is potential for further normalisation of the data model, this model achieves the project's primary goal within the time constraints. Furthermore, it would be recommened to further refine and clarify the user cases for the data before investing more effort to design a more sophisticated model, following an agile approach.
+While there is potential for further normalisation of the data model, this model achieves the project's primary goal within the time constraints. Furthermore, it would be recommend to further refine and clarify the user cases for the data before investing more effort to design a more sophisticated model, following an agile approach.
 
 ### Functional design
 
@@ -165,7 +165,7 @@ Once installed, the database can be initialised (incl. metadata) by running the 
 $ citypulse-etl --metadata-json=metadata.json clean-db init-metadata
 ```
 
-Which produces the following logs when succesful:
+Which produces the following logs when successful:
 
 ```
 [2021-12-19 17:16:07,057] INFO cli - Database cleared.
@@ -196,11 +196,11 @@ Which produces the following logs showing the progress (truncated for brevity):
 ...
 ```
 
-Since the data model has implemented with column data type, foriegn key, uniqueness constraints, these constraints are checked upon insertion and are raised as exceptions by SQLAlchemy if they are violated. Transaction sessions are used to ensure that a only valid insertions from a completely sucessful pipeline is committed to the database.
+Since the data model has implemented with column data type, foreign key, uniqueness constraints, these constraints are checked upon insertion and are raised as exceptions by SQLAlchemy if they are violated. Transaction sessions are used to ensure that a only valid insertions from a completely successful pipeline is committed to the database.
 
 ### Querying the data
 
-Once the ETL pipeline has run, the target database can be queried with the consumer's prefered tool.
+Once the ETL pipeline has run, the target database can be queried with the consumer's preferred tool.
 
 For example, a basic query can be run get all of the social events in July 2014:
 
@@ -217,7 +217,7 @@ Returning these records:
 ![Results from social events query](basic-query.png)
 **Figure 4.** Results from social events query
 
-Or a more slightly more advanced query can join the traffic and pollution data alongwith the traffic sensor metadata:
+Or a more slightly more advanced query can join the traffic and pollution data along with the traffic sensor metadata:
 
 ```sql
 SELECT ts.point_1_street, ts.point_1_city, rtd.avg_speed, rtd.vehicle_count, pd.carbon_monoxide
@@ -239,7 +239,7 @@ This section discusses the developed tool from the perspective of using it or ad
 
 ### Streaming data in real time
 
-Real-time collection of the data could be acieved with this tool in a number of ways.
+Real-time collection of the data could be achieved with this tool in a number of ways.
 
 In it's current form, the tool could be used quite easily for real-time data collection if the new datasets were made available with similar HTTP requests as they are now. In this case, the ETL pipeline itself would work, and all that would need to added is for the tool to automatically find new datasets to process, instead of being given a fixed list of them in the json configuration file. This could be achieved by periodically crawling the CityPulse server for datasets that have not already been processed then running them through the ETL pipeline as normal.
 
@@ -249,11 +249,11 @@ Alternatively, if the data became available via a different communication protoc
 
 In order to scale up to a much larger amount of IoT sensors, the first recommended change to the tool would be to hook it up to a larger database than SQLite. Since it uses SQLAlchemy, this would just be a matter of changing the database driver & connection string that it is using.
 
-Aside from using a more scalable database, the current tool itself should be quite scalable since a run is defined by a json configuration and the pipeline processes and commits each dataset from an independent database session/transaction. This means that pipelines could be orchestrated and run in a distributed computing environment. For example, setting up a shared queue of pipeline _jobs_ and running them in parallel aross multiple worker machines or in a serverless architecture (e.g. Azure Functions / AWS Lambda).
+Aside from using a more scalable database, the current tool itself should be quite scalable since a run is defined by a json configuration and the pipeline processes and commits each dataset from an independent database session/transaction. This means that pipelines could be orchestrated and run in a distributed computing environment. For example, setting up a shared queue of pipeline _jobs_ and running them in parallel across multiple worker machines or in a serverless architecture (e.g. Azure Functions / AWS Lambda).
 
 #### Converting geographic coordinates into human-readable addresses
 
-Converting the longitude and latitude data into human-readable addresses would be particuarly useful for presenting the data in the dashboard for end-users.
+Converting the longitude and latitude data into human-readable addresses would be particularly useful for presenting the data in the dashboard for end-users.
 
 This could be achieved by either appending the existing pipeline or setting up an additional pipeline that uses a web service, like [Google&#39;s Reverse Geocoding API](https://developers.google.com/maps/documentation/geocoding/overview#ReverseGeocoding), to convert the longitude and latitude values in to addresses then saves that to the database.
 
@@ -304,4 +304,4 @@ The developed MVP has successfully met the primary goal of the project within th
 
 A CLI tool allows the user to initialise an SQL database and run the ETL pipeline on the data hosted on the CityPulse website to populate the target database.
 
-Discussion into future potential uses higlights the flexibility of the tool as well as potentials for future improvements.
+Discussion into future potential uses highlights the flexibility of the tool as well as potentials for future improvements.
