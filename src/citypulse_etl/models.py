@@ -45,7 +45,6 @@ class RoadTrafficData(Base):
 
     # Uniqueness constraints
     __table_args__ = (
-        # XXX TODO work out what this should be
         UniqueConstraint(
             'timestamp',
             'report_id',
@@ -98,11 +97,11 @@ class PollutionData(Base):
 
     # Column definitions
     id = Column(Integer, primary_key=True)
-    ozone = Column(Integer)
-    particullate_matter = Column(Integer)
-    carbon_monoxide = Column(Integer)
-    sulfure_dioxide = Column(Integer)
-    nitrogen_dioxide = Column(Integer)
+    ozone = Column(Float)
+    particullate_matter = Column(Float)
+    carbon_monoxide = Column(Float)
+    sulfure_dioxide = Column(Float)
+    nitrogen_dioxide = Column(Float)
     longitude = Column(Float)
     latitude = Column(Float)
     timestamp = Column(DateTime)
@@ -177,10 +176,11 @@ class WeatherData(Base):
 
     # Uniqueness constraints
     __table_args__ = (
-        # UniqueConstraint(
-        #     'timestamp',
-        #     name='_space_time_uc'
-        #     ),
+        UniqueConstraint(
+            'timestamp',
+            'dataset_id',
+            name='_weather_uc'
+            ),
     )
 
     raw_data_column_map = {
@@ -416,26 +416,26 @@ class LibraryEventData(Base):
 
     # Column definitions
     id = Column(Integer, primary_key=True)
-    lid = Column(String)  # TODO check this
-    city = Column(String)  # TODO check this
-    end_time = Column(String)  # TODO check this
-    title = Column(String)  # TODO check this
-    url = Column(String)  # TODO check this
-    price = Column(String)  # TODO check this
-    changed = Column(String)  # TODO check this
-    content = Column(String)  # TODO check this
-    zip_code = Column(String)  # TODO check this
-    library = Column(String)  # TODO check this
-    image_url = Column(String)  # TODO check this
-    teaser = Column(String)  # TODO check this
-    street = Column(String)  # TODO check this
-    status = Column(String)  # TODO check this
-    longitude = Column(String)  # TODO check this
-    start_time = Column(String)  # TODO check this
-    latitude = Column(String)  # TODO check this
-    _id = Column(String)  # TODO check this
-    event_id = Column(String)  # TODO check this
-    stream_time = Column(String)  # TODO check this
+    lid = Column(String)
+    city = Column(String)
+    end_time = Column(DateTime)
+    title = Column(String)
+    url = Column(String)
+    price = Column(String)
+    changed = Column(DateTime)
+    content = Column(String)
+    zip_code = Column(Integer)
+    library = Column(String)
+    image_url = Column(String)
+    teaser = Column(String)
+    street = Column(String)
+    status = Column(Integer)
+    longitude = Column(Float)
+    start_time = Column(DateTime)
+    latitude = Column(Float)
+    _id = Column(Integer)
+    event_id = Column(Integer)
+    stream_time = Column(DateTime)
     dataset_id = Column(Integer, ForeignKey('datasets.id'))
 
     # Uniqueness constraints
@@ -490,7 +490,10 @@ class LibraryEventData(Base):
     def transform_raw_data(cls, df, dataset):
         df['dataset_id'] = dataset.id
         df = df.rename(columns=cls.raw_data_column_map)
-        # df['timestamp']= pd.to_datetime(df['timestamp'])
+        df['end_time'] = pd.to_datetime(df['end_time'])
+        df['changed'] = pd.to_datetime(df['changed'])
+        df['start_time'] = pd.to_datetime(df['start_time'])
+        df['stream_time'] = pd.to_datetime(df['stream_time'])
         return df[[c.name for c in cls.__table__.c if c.name != 'id']]
 
 
