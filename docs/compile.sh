@@ -2,11 +2,12 @@
 
 pandoc report.md \
     -f gfm \
-    --include-in-header chapter_break.tex \
+    --include-in-header tex-header.tex \
     -V linkcolor:blue \
     -V geometry:a4paper \
     -V geometry:margin=2cm \
-    -V mainfont="DejaVu Serif" \
-    -V monofont="DejaVu Sans Mono" \
-    --pdf-engine=pdflatex \
+    -V mainfont="Noto Serif" \
+    -V monofont="Noto Mono" \
+    --highlight-style pygments.theme \
+    --pdf-engine=xelatex \
     -o report.pdf

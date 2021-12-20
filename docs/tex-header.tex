@@ -1,0 +1,25 @@
+% chapter breaks
+\usepackage{sectsty}
+\sectionfont{\LARGE\clearpage}
+
+% inline code block background colour
+\usepackage{fancyvrb,newverbs,xcolor}
+
+\definecolor{Light}{HTML}{F8F8F8}
+
+\let\oldtexttt\texttt
+\renewcommand{\texttt}[1]{
+  \colorbox{Light}{\oldtexttt{#1}}
+}
+
+
+% PDF properties
+\usepackage{hyperref}
+
+\hypersetup{
+  pdftitle={CityPulse ETL},
+  pdfauthor={Sam Patterson},
+  pdfsubject={CityPulse ETL},
+  pdfkeywords={CityPulse,ETL,CityPulse ETL,extract-transform-load,data-pipeline}
+}
+

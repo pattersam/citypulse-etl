@@ -46,13 +46,24 @@ A report about this project is available under `docs/report.md`.
 
 To build a pdf out of the report, [pandoc](https://pandoc.org/) has be used along with [this helpful guide](https://learnbyexample.github.io/customizing-pandoc/)
 
-Install Pandoc and filters
+#### Install Pandoc and filters
 
-- Update apt-get `sudo apt-get update -y`
-- Install pandoc `sudo apt-get install -y pandoc`
-- Install pdflatext `sudo apt-get install -y texlive-latex-base texlive-fonts-recommended texlive-fonts-extra texlive-latex-extra`
-- Install filter for [mermaid charts](https://mermaid-js.github.io/mermaid/#/) `npm install --global mermaid-filter`
+- Update apt-get: `sudo apt-get update -y`
+- Install pandoc: `sudo apt-get install -y pandoc`
+- Install pdflatext: `sudo apt-get install -y texlive-latex-base texlive-fonts-recommended texlive-fonts-extra texlive-latex-extra texlive-xetex librsvg2-bin texlive-science`
+- Install filter for [mermaid charts](https://mermaid-js.github.io/mermaid/#/): `npm install --global mermaid-filter`
+- Install schema generator: `npm install -g sqleton`
+- Install graphviz (for scchema generator): `sudo apt-get install -y graphviz`
 
-Build
+#### Building schema diagram
 
-- `./compile.sh `
+The [sqleton](https://github.com/inukshuk/sqleton) tool can build a scheme from the SQLite databse.
+
+- Run: `sqleton -o docs/schema.svg -L circo data/database.db`
+
+#### Building report
+
+[Pandoc](https://pandoc.org/) is used to convert the `docs/report.md` Markdown file to a PDF
+
+- First change into the docs directory: `cd docs`
+- Then run: `./compile.sh`
