@@ -107,7 +107,7 @@ class PollutionData(Base):
     latitude = Column(Float)
     timestamp = Column(DateTime)
     report_id = Column(Integer, ForeignKey('traffic_sensors.id'))
-    dataset_id = Column(Integer, ForeignKey('locations.id'))
+    dataset_id = Column(Integer, ForeignKey('datasets.id'))
 
     # Uniqueness constraints
     __table_args__ = (
@@ -172,6 +172,7 @@ class WeatherData(Base):
     visibility = Column(Float)
     wind_speed = Column(Float)
     humidity = Column(Float)
+    dataset_id = Column(Integer, ForeignKey('datasets.id'))
 
 
     # Uniqueness constraints
@@ -235,7 +236,7 @@ class ParkingData(Base):
     total_spaces = Column(Integer)
     garage_code = Column(String, ForeignKey('parking_lots.garage_code'))
     stream_time = Column(DateTime)
-    dataset_id = Column(Integer, ForeignKey('locations.id'))
+    dataset_id = Column(Integer, ForeignKey('datasets.id'))
 
     # Uniqueness constraints
     __table_args__ = (
@@ -291,7 +292,7 @@ class SocialEventData(Base):
     url = Column(String)  # e.g. http://www.surreycc.public-i.tv/core/portal/webcast_interactive/144043
     description = Column(String)  # "Planning and Regulatory Committee 03/09/2014 10.30 am Ashcombe Suite County Hall Kingston upon Thames Surrey KT1 2DN"
     timestamp = Column(DateTime)  # e.g. "Wed 03 Sep 2014 10:30:00 +0100"
-    dataset_id = Column(Integer, ForeignKey('locations.id'))
+    dataset_id = Column(Integer, ForeignKey('datasets.id'))
 
     # Uniqueness constraints
     __table_args__ = (
@@ -360,7 +361,7 @@ class CulturalEventData(Base):
     event_type = Column(String)
     image_url = Column(String)
     genre = Column(String)
-    dataset_id = Column(Integer, ForeignKey('locations.id'))
+    dataset_id = Column(Integer, ForeignKey('datasets.id'))
 
     raw_data_column_map = {
         'category_number': 'category_number',  # e.g. 1
@@ -435,7 +436,7 @@ class LibraryEventData(Base):
     _id = Column(String)  # TODO check this
     event_id = Column(String)  # TODO check this
     stream_time = Column(String)  # TODO check this
-    dataset_id = Column(Integer, ForeignKey('locations.id'))
+    dataset_id = Column(Integer, ForeignKey('datasets.id'))
 
     # Uniqueness constraints
     __table_args__ = (
