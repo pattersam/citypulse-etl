@@ -263,13 +263,13 @@ A demonstration script, [`reverse-geocoding-demo.py`](https://gitlab.com/s-a-m/c
 
 ```
 Traffic Sensor #158895 measures traffic between:
-    #Søftenvej, Tilst 8381, Danmark
+    Søftenvej, Tilst 8381, Danmark
     and
-    #Søftenvej, Aarhus 8200, Danmark
+    Søftenvej, Aarhus 8200, Danmark
 Traffic Sensor #178600 measures traffic between:
-    #Grenåvej, Aarhus 8240, Danmark
+    Grenåvej, Aarhus 8240, Danmark
     and
-    #Grenåvej, Aarhus 8240, Danmark
+    Grenåvej, Aarhus 8240, Danmark
 ...
 ```
 

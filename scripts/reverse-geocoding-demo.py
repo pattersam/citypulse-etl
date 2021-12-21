@@ -47,9 +47,9 @@ def print_traffic_sensor_points_in_human_readable_format(ts: TrafficSensor):
     )
 
     print(f"Traffic Sensor #{ts.id} measures traffic between:")
-    print(f"    #{point_1_address}")
+    print(f"    {point_1_address}")
     print(f"    and")
-    print(f"    #{point_2_address}")
+    print(f"    {point_2_address}")
 
 
 def main():
