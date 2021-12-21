@@ -291,7 +291,8 @@ Analysing the consolidation of the various types of datasets hosted by CityPulse
 In addition to the potential improvements discussed above, the following work could also be conducted to improve the tool.
 
 - Implement unit and integration testing
-- Find out where the wrongly indexed/linked datasets are
+- Set up database migrations to safely manage changes to the data model (e.g. using [Alembic](https://alembic.sqlalchemy.org/en/latest/))
+- Find out where the wrongly indexed/linked CityPulse datasets are
 - Investigate the data modelling framework associated with the broader CityPulse academic research project
 - Conduct more research into the context of the data collection, it's purpose and the environment it has been collected in to help understand more about the value of the data and how it can be analysed
 - Validate column name guesses (i.e. Cultural Event Data)
