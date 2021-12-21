@@ -257,7 +257,21 @@ Aside from using a more scalable database, the current tool itself should be qui
 
 Converting the longitude and latitude data into human-readable addresses would be particularly useful for presenting the data in the dashboard for end-users.
 
-This could be achieved by either appending the existing pipeline or setting up an additional pipeline that uses a web service, like [Google&#39;s Reverse Geocoding API](https://developers.google.com/maps/documentation/geocoding/overview#ReverseGeocoding), to convert the longitude and latitude values in to addresses then saves that to the database.
+This could be easily achieved by either appending the existing pipeline or setting up an additional pipeline that uses a reverse geocoding web service, like [Google&#39;s Reverse Geocoding API](https://developers.google.com/maps/documentation/geocoding/overview#ReverseGeocoding) or the [Open Streem Map Nominatim API](https://nominatim.org/release-docs/develop/api/Reverse/), to convert the longitude and latitude values in to addresses then saves that to the database.
+
+A demonstration script, [`reverse-geocoding-demo.py`](https://gitlab.com/s-a-m/citypulse-etl/-/tree/main/scripts/reverse-geocoding-demo.py), has been implemented to show a minimal example of doing this for the two locations associated with each traffic sensor. It uses the [Nominatim API](https://nominatim.org/release-docs/develop/api/Reverse/) and the result of the script is as followes (truncated for brevity):
+
+```
+Traffic Sensor #158895 measures traffic between:
+    #Søftenvej, Tilst 8381, Danmark
+    and
+    #Søftenvej, Aarhus 8200, Danmark
+Traffic Sensor #178600 measures traffic between:
+    #Grenåvej, Aarhus 8240, Danmark
+    and
+    #Grenåvej, Aarhus 8240, Danmark
+...
+```
 
 ### Harmonising the cultural and library event datasets
 
