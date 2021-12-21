@@ -151,7 +151,7 @@ The collection of technologies and libraries used have been selected based on fa
 - [requests](https://docs.python-requests.org/en/latest/) - a widely-used and robust library for HTTP resources
 - [SQLite](https://www.sqlite.org/index.html) - a simple and self-contained SQL database
 
-The tool has been built as a installable Python package that provides the CLI tool to the console when installed for ease-of-deployment.
+The tool has been built as an installable Python package that provides the CLI tool to the console when installed for ease of use and deployment.
 
 As well as being useful for running the pipeline, installing the package also gives access to the SQLAlchemy ORM (object–relational mapping) classes which could be used by a consumer to interact with the data via Python objects instead of SQL.
 
@@ -198,7 +198,7 @@ Which produces the following logs showing the progress (truncated for brevity):
 ...
 ```
 
-Since the data model has implemented with column data type, foreign key, uniqueness constraints, these constraints are checked upon insertion and are raised as exceptions by SQLAlchemy if they are violated. Transaction sessions are used to ensure that a only valid insertions from a completely successful pipeline is committed to the database.
+Since the models have been implemented with column data type, foreign key, uniqueness constraints, these constraints are checked upon insertion and are raised as exceptions by SQLAlchemy if they are violated. Transaction sessions are used to ensure that a only valid insertions from a completely successful pipeline is committed to the database.
 
 ### Querying the data
 
