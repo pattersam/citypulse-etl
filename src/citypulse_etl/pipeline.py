@@ -99,7 +99,7 @@ def run_pipeline(
         log.debug(f"Transforming {len(raw_data)} rows...")
         transformed_data = data_type_model_cls.transform_raw_data(raw_data, dataset)
 
-        log.debug(f"Writing to {data_type_model_cls.__tablename__}...")
+        log.info(f"Writing to {data_type_model_cls.__tablename__}...")
         try:
             insert_rows_from_df(transformed_data, data_type_model_cls, session)
         except IntegrityError:
