@@ -24,9 +24,9 @@ The purpose of the document is to describe the project's activities and outcomes
 
 The primary goal of this project is to get the raw CityPulse datasets into a single datastore that can be queried for visualisation and analysis.
 
-To this end, the desired outcome of the project is a functioning end-to-end MVP of the pipeline which takes the raw data, applies basic transformations, and populates a target database.
+To this end, the desired outcome of the project is a functioning end-to-end pipeline which takes the raw data, applies basic transformations, and populates a target database. This will be developed with minimum viable product (MVP) mindset that will focus on delivering a tool that can be easily adapted and improved as its use cases evolve.
 
-The main constraint on this project is time. It is being performed by a single developer over a weekend as a recruitment challenge. Therefore, only one iteration of design and development is being conducted. This means that while the primary goal is being achieved, there will be plenty of potential follow up work to further iterate, refine and improve the solution.
+The project is naturally constrained in both time and resources. It is being performed by a single developer over a weekend as a recruitment challenge. Furthermore, the usual collaboration with the data analyst that the pipeline is being built for will not occur. For these reasons, only one iteration of design and development is being conducted. This means that while the primary goal will be achieved, there will be plenty of potential follow up work to further iterate, refine and improve the solution.
 
 In terms of technological constraints, since this project is starting from scratch and is being developed in isolation from any other systems, only open-source libraries and local computing resources are going to be used. However, technologies will be chosen that will enable the tool to be used with other databases and deployment environments.
 
@@ -153,7 +153,7 @@ The collection of technologies and libraries used have been selected based on fa
 
 The tool has been built as a installable Python package that provides the CLI tool to the console when installed for ease-of-deployment.
 
-As well as being useful for running the pipeline, installing the package also gives access to the SQLAlchemy ORM classes which could be used by a consumer to interact with the data instead of SQL.
+As well as being useful for running the pipeline, installing the package also gives access to the SQLAlchemy ORM (object–relational mapping) classes which could be used by a consumer to interact with the data via Python objects instead of SQL.
 
 A dependency graph of the developed package is available in the appendix.
 
@@ -253,13 +253,13 @@ In order to scale up to a much larger amount of IoT sensors, the first recommend
 
 Aside from using a more scalable database, the current tool itself should be quite scalable since a run is defined by a json configuration and the pipeline processes and commits each dataset from an independent database session/transaction. This means that pipelines could be orchestrated and run in a distributed computing environment. For example, setting up a shared queue of pipeline _jobs_ and running them in parallel across multiple worker machines or in a serverless architecture (e.g. Azure Functions / AWS Lambda).
 
-#### Converting geographic coordinates into human-readable addresses
+### Converting geographic coordinates into human-readable addresses
 
 Converting the longitude and latitude data into human-readable addresses would be particularly useful for presenting the data in the dashboard for end-users.
 
 This could be achieved by either appending the existing pipeline or setting up an additional pipeline that uses a web service, like [Google&#39;s Reverse Geocoding API](https://developers.google.com/maps/documentation/geocoding/overview#ReverseGeocoding), to convert the longitude and latitude values in to addresses then saves that to the database.
 
-#### Harmonising the cultural and library event datasets
+### Harmonising the cultural and library event datasets
 
 The cultural and library event datasets contain a lot of similar data. For example, the following fields exist across both datasets:
 
@@ -273,7 +273,7 @@ With further transformation to align naming and datatypes, these could be combin
 
 For other fields available in one but not the other, sensible defaults could be chosen to fill them in. For example the theatre events have a 'room' field which isn't present in the library data, this could simply be 'library' or similar for the library events.
 
-Doing this would allow more generalised exploration, visualised and analysis of the data. It would also open up opportunity to integrate events from other locations into the same model, for example the social event data from Surrey which has a subset of these fields.
+Doing this would allow more generalised exploration, visualisation and analysis of the data. It would also open up opportunity to integrate events from other locations into the same model, for example the social event data from Surrey which has a subset of these fields.
 
 ### Other potential uses
 
@@ -281,23 +281,29 @@ Analysing the consolidation of the various types of datasets hosted by CityPulse
 
 - Learning relationship between the datasets to predict the impact of them on one-another, e.g. how weather and events impact local traffic, parking availability and pollution
 - Supporting public transport operators to make more informed and proactive decisions about the required capacity of the public transport system (based on current and predicted weather, events, and traffic)
-- Informing citizens about upcoming events with integrated weather updates and travel recommendations
 - Dynamic pricing and allocation of parking spots based on expected use (e.g. for markets or other temporary events)
+- Informing citizens about upcoming events with integrated weather updates and travel recommendations
 - Providing citizens with real-time updates about traffic and pollution to inform their transit decisions
 - Analysis to support scheduling events across city owned buildings in a way that minimises the impact on traffic and pollution
 
 ### Recommended improvements / future work
 
-In addition to the potential improvements discussed above, the following work could also be conducted to improve the tool.
+In addition to the potential improvements discussed above, several improvements are recommended.
+
+To increase the robustness & reliability of the tool, the following suggestions are made:
 
 - Implement unit and integration testing
-- Set up database migrations to safely manage changes to the data model (e.g. using [Alembic](https://alembic.sqlalchemy.org/en/latest/))
+- Use database migrations to safely manage changes to the data model (e.g. using [Alembic](https://alembic.sqlalchemy.org/en/latest/))
+- Establish production environment for deployment (e.g. Azure SQL Database + Azure Functions)
+- Set up continuous integration and deployment (CI/CD) to test, build and deploy the script to a production environment (e.g. using GitLab CI/CD or Azure DevOps)
+- Document the system architecture more formally, using something like [arc42](https://arc42.org/)
+
+To further refine and improve the data model, the following work is recommended in collaboration with the data analyst:
+
 - Find out where the wrongly indexed/linked CityPulse datasets are
 - Investigate the data modelling framework associated with the broader CityPulse academic research project
 - Conduct more research into the context of the data collection, it's purpose and the environment it has been collected in to help understand more about the value of the data and how it can be analysed
-- Validate column name guesses (i.e. Cultural Event Data)
-- Set up continuous integration and deployment (CI/CD) to test, build and deploy the script to a production environment
-- Document the system architecture more formally, using something like [arc42](https://arc42.org/)
+- Validate column naming where not provided in raw data (i.e. Cultural Event Data)
 - Improve the data model to better suit more specific requirements of the visualisation and analysis in collaboration with the data analyst
 - More detailed analysis into the quality of the data to build more sophisticated cleaning and transformation
 
@@ -305,9 +311,9 @@ In addition to the potential improvements discussed above, the following work co
 
 The developed MVP has successfully met the primary goal of the project within the constraints.
 
-A CLI tool allows the user to initialise an SQL database and run the ETL pipeline on the data hosted on the CityPulse website to populate the target database.
+The [`citypulse-etl`](https://gitlab.com/s-a-m/citypulse-etl) Python package and CLI tool allows the user to initialise an SQL database and run the ETL pipeline on the data hosted on the CityPulse website to populate the target database.
 
-Discussion into future potential uses highlights the flexibility of the tool as well as potentials for future improvements.
+Finally, this report has provided discussion into future potential uses which highlights the flexibility of the tool along with recommendations for future improvements.
 
 ## Appendix
 
