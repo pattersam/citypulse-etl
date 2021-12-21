@@ -562,7 +562,7 @@ class TrafficSensor(Base):
         'POINT_2_CITY': 'point_2_city',
         'extID': 'extid',
         'ROAD_TYPE': 'road_type',
-        'POINT_1_LNG': 'point_2_longitude',
+        'POINT_1_LNG': 'point_1_longitude',
         'REPORT_ID': 'id',  # primary key
         'POINT_1_COUNTRY': 'point_1_country',
         'DISTANCE_IN_METERS': 'distance_in_meters',
