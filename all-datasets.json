@@ -1,5 +1,24 @@
 [
     {
+        "name": "Surrey Social Event Dataset-1",
+        "data_type": "Social Event Data",
+        "url": "http://iot.ee.surrey.ac.uk:8080/datasets/surreyevents/surrey_events.csv",
+        "location": "Surrey"
+    },
+    {
+        "name": "Aarhus Parking Dataset-1",
+        "data_type": "Parking Data",
+        "url": "http://iot.ee.surrey.ac.uk:8080/datasets/parking/aarhus_parking.csv",
+        "location": "Aarhus"
+    },
+    {
+        "name": "Aarhus Parking Dataset-2",
+        "data_type": "Parking Data",
+        "url": "http://iot.ee.surrey.ac.uk:8080/datasets/parking/aarhus_parking.csv",
+        "location": "Aarhus",
+        "ignore": true
+    },
+    {
         "name": "Aarhus Weather Dataset-1",
         "data_type": "Weather Data",
         "url": "http://iot.ee.surrey.ac.uk:8080/datasets/weather/feb_jun_2014/raw_weather_data_aarhus.tar.gz",
@@ -24,25 +43,6 @@
         "url": "http://iot.ee.surrey.ac.uk:8080/datasets/weather/aug_sep_2014/raw_weather_data_aug_sep_2014.zip",
         "location": "Brasov",
         "ignore": true
-    },
-    {
-        "name": "Aarhus Parking Dataset-1",
-        "data_type": "Parking Data",
-        "url": "http://iot.ee.surrey.ac.uk:8080/datasets/parking/aarhus_parking.csv",
-        "location": "Aarhus"
-    },
-    {
-        "name": "Aarhus Parking Dataset-2",
-        "data_type": "Parking Data",
-        "url": "http://iot.ee.surrey.ac.uk:8080/datasets/parking/aarhus_parking.csv",
-        "location": "Aarhus",
-        "ignore": true
-    },
-    {
-        "name": "Surrey Social Event Dataset-1",
-        "data_type": "Social Event Data",
-        "url": "http://iot.ee.surrey.ac.uk:8080/datasets/surreyevents/surrey_events.csv",
-        "location": "Surrey"
     },
     {
         "name": "Aarhus Cultural Event Dataset-1",
