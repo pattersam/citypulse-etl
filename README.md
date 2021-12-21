@@ -54,6 +54,7 @@ To build a pdf out of the report, [pandoc](https://pandoc.org/) has be used alon
 - Install filter for [mermaid charts](https://mermaid-js.github.io/mermaid/#/): `npm install --global mermaid-filter`
 - Install schema generator: `npm install -g sqleton`
 - Install graphviz (for scchema generator): `sudo apt-get install -y graphviz`
+- Install pydeps: `pip install pydeps`
 
 #### Building schema diagram
 
