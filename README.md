@@ -26,17 +26,11 @@ To run the ETL on a collection of datasets, run:
 citypulse-etl --dataset-json=all-datasets.json run-pipeline
 ```
 
-## Development
-
-### Set up
+## Development environment
 
 - Create a virtual environment using `python -m virtualenv venv`
 - Activate the virtual environment using `venv\Scripts\activate` on Windows or `source venv/bin/activate` on Linux/OSX
 - Install requirements with `pip install -r requirements.txt`
-
-## Assumptions and Limitations
-
-- ...
 
 ## Documentation
 
